@@ -17,8 +17,8 @@ class ApiService {
     _dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
+        connectTimeout: const Duration(seconds: 45),
+        receiveTimeout: const Duration(seconds: 45),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -51,10 +51,10 @@ class ApiService {
     if (error is DioException) {
       if (error.type == DioExceptionType.connectionTimeout ||
           error.type == DioExceptionType.receiveTimeout) {
-        return 'Server connection timed out. Please check backend server.';
+        return 'Server is waking up (Render cold start). Please wait 10 seconds and tap Login again.';
       }
       if (error.type == DioExceptionType.connectionError) {
-        return 'Cannot connect to backend server at $baseUrl. Ensure Node.js backend is running.';
+        return 'Connecting to live server. Render free tier takes ~30s to spin up. Please try again in a moment.';
       }
       if (error.response?.data != null && error.response?.data['message'] != null) {
         return error.response!.data['message'].toString();
