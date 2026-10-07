@@ -6,8 +6,8 @@ services:
     rootDir: backend
     region: singapore
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && node src/server.js
+    buildCommand: npm install
+    startCommand: node src/server.js
     envVars:
       - key: NODE_ENV
         value: production

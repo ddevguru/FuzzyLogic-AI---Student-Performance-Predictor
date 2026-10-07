@@ -4,10 +4,10 @@ services:
     name: fuzzylogic-student-predictor-api
     env: node
     rootDir: backend
-    region: singapore
+    region: singapore # or oregon, frankfurt, etc.
     plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && node src/server.js
+    buildCommand: npm install
+    startCommand: node src/server.js
     envVars:
       - key: NODE_ENV
         value: production
