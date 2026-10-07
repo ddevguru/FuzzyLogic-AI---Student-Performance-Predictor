@@ -3,13 +3,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 
 class ApiService {
-  // Base URLs for localhost / Android Emulator / Production Render Deployment
-  // For production deployment on Render, replace with:
-  // static const String renderProductionUrl = 'https://fuzzylogic-student-predictor-api.onrender.com/api';
+  // Live Production Render Backend API URL
+  static const String liveProductionUrl = 'https://fuzzylogic-student-predictor-api.onrender.com/api';
+  static const String localFallbackUrl = 'http://127.0.0.1:5000/api';
 
   static String get baseUrl {
-    if (kIsWeb) return 'http://localhost:5000/api';
-    return 'http://127.0.0.1:5000/api';
+    return liveProductionUrl;
   }
 
   late final Dio _dio;
