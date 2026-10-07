@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { initDb } = require('./config/database');
 const dbStore = require('./services/dbStore');
 const { processFuzzyPrediction } = require('./services/fuzzyLogicService');
